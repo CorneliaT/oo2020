@@ -8,9 +8,9 @@ import java.io.PrintWriter;
  
 public class KT3 {
     public static void main(String args[]) throws IOException {
-        int[] annualIntRt = new int[howMany()];
+        double[] annualIntRt = new double[(int) howMany()];
         fillArray(annualIntRt);
-        int speed = (average(annualIntRt,howMany()));
+        double speed = (average(annualIntRt,howMany()));
         PrintWriter writer = new PrintWriter("Kiirus.txt", "UTF-8");
         writer.println(speed);
         writer.close();
@@ -19,13 +19,13 @@ public class KT3 {
 
     }
  
-    private static void fillArray(int[] ary) {
+    private static void fillArray(double[] ary) {
         try {
             File arrayInput = new File("Kiirused.txt");
             Scanner in = new Scanner(arrayInput);
             int i = 0;  
             while (in.hasNextLine())
-                ary[i++] = in.nextInt();
+                ary[i++] = in.nextDouble();
             in.close();
         }
         catch (FileNotFoundException e) {
@@ -34,7 +34,7 @@ public class KT3 {
         //See funktsioon paneb failist kiirused arraysse (Inspiratsioon: https://bytes.com/topic/java/answers/909500-how-fill-double-array-double-values-i-read-file)
     }
 
-    public static int howMany() throws IOException  {
+    public static double howMany() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("Kiirused.txt"));
         String line;
         
@@ -47,8 +47,8 @@ public class KT3 {
         //See funktsioon loeb kokku Kui palju arve on failis ja tagastab selle.
     }
 
-    static int average(int a[], int n) { 
-        int kokku = 0;
+    static double average(double a[], double n) { 
+        double kokku = 0;
         for (int i = 0; i < n; i++) {
             kokku+=a[i];
 
