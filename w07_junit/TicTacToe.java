@@ -46,6 +46,10 @@ public static void main(String[] args) {
         //Kontrollib võitjaid
         String result = checkWinner();
         System.out.println(result);
+        //Väljub mängust
+        if(result.length() != 0){
+            System.exit(0);
+        } 
         }
     
     }
